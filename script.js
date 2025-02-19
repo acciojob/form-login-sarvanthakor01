@@ -1,7 +1,7 @@
 function getFormvalue(event) {
-    //Write your code here
-    event.preventDefault(); // Prevents form from refreshing the page
+    if (event) event.preventDefault(); // Prevent form submission refresh
 
+    // Retrieve and trim values
     let firstName = document.querySelector('input[name="fname"]').value.trim();
     let lastName = document.querySelector('input[name="lname"]').value.trim();
 
@@ -10,12 +10,9 @@ function getFormvalue(event) {
         return;
     }
 
-    let fullName = `${firstName} ${lastName}`;
+    let fullName = `${firstName} ${lastName}`; // Preserve middle name in Last Name field
     alert(fullName);
 }
 
-// Attach event listener to the form
+// Attach event listener properly
 document.getElementById("form1").addEventListener("submit", getFormvalue);
-
-
-
